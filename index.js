@@ -28,6 +28,20 @@ app.get("/about", function(req, res){
 app.get("/contact", function(req, res){
   res.render("contact", {startingContent: contactContent} )
 });
+
+app.get("/posts/:title", function(req, res){
+let postTitle = req.params.title;
+  console.log(postTitle);
+  for (let i=0; i<posts.length; i++){
+    if(posts[i].title == postTitle) {
+      return console.log("Match found");
+    }
+
+  }
+  return console.log("Match not found");
+})
+
+
 app.get("/compose", function(req, res){
   res.render("compose", {} )
 });
